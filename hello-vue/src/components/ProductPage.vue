@@ -6,16 +6,19 @@
         </div>
         <Product @add-to-cart="addToCart"></Product>
         <Product @add-to-cart="addToCart"></Product>
+        <Comment></Comment>
     </div>    
 </template>
 
 <script>
-import Product from './Product.vue';
+import Product from './Product.vue'
+import Comment from './Comment.vue'
 
 export default{
     name:'ProductPage',
     components:{
-        Product
+        Product,
+        Comment
     },
     data(){
         return {cart:[]}
