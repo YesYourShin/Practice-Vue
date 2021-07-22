@@ -2,7 +2,7 @@
     <div>
         <BaseInputText v-model="newTodoText" placeholder="New todo" @keydown.enter="addTodo"/>
         <ul v-if="todos.length">
-            <TodoListItem v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo"/>
+            <TodoListItem v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo" @check="checkTodo"/>
         </ul>
         <p v-else>
             Nothing left in the list. Add a new todo in the input above.
@@ -32,7 +32,8 @@ export default {
             if (trimmedText) {
                 this.todos.push({
                     id:nextTodoId++,
-                    text: trimmedText
+                    text: trimmedText,
+                    check:false,
                 })
                 this.newTodoText = ''
             }
@@ -41,7 +42,16 @@ export default {
             this.todos = this.todos.filter(todo => {
             return todo.id !== idToRemove
             })
-        }
+        },
+        checkTodo (idToCheck) {
+            this.todos.forEach(todo => {
+                if(todo.id === idToCheck){
+                    todo.check = true;
+                    todo.time = new Date(Date.now()).toString()
+                }
+            })
+        },
+
     }
 }
 </script>
