@@ -2,35 +2,41 @@
     <div id="app">
         <h1>Menus</h1>
         <h1>{{ menu_name }}</h1>
-        <h1>{{ searched_menu }}</h1>
+        <!-- <h1>{{ searched_menu }}</h1>
         <ul>
             <li v-for="menu in menus" :key="menu.id">
-                <a>{{ menu.name }}</a>
+                <a :href="'/menus/'+menu.id">{{ menu.name }}</a>
+                <a :href="menuAddress(menu.id)">{{ menu.name }}</a>
             </li>
-        </ul>
+        </ul> -->
     </div>
 </template>
 
 <script>
-import MenuList from './MenuList.vue'
+// import MenuList from './MenuList.vue'
 export default{
-    components: {
-        MenuList
-    },
+    // methods:{
+    //     menuAddress(id){
+    //         return '/menus'+menu.id
+    //     }
+    // },
+    // components: {
+    //     MenuList
+    // },
     name:'Menus',
     computed:{
-        data() {
-            return {
-                menus:[{
-                    id:1, name="a", price:10000
-                }, {
-                    id:2, name="b", price:10000
-                }, {
-                    id:3, name="c", price:10000
-                }]
-            }
+        // data() {
+        //     return {
+        //         menus:[{
+        //             id:1, name="a", price:10000
+        //         }, {
+        //             id:2, name="b", price:10000
+        //         }, {
+        //             id:3, name="c", price:10000
+        //         }]
+        //     }
 
-        },
+        // },
         menu_name(){
             const id = this.$route.params.menu_id
             if(id=='1')

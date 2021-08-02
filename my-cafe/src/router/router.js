@@ -12,7 +12,7 @@ export default new VueRouter({
     mode:'history',
     routes:[
         { path:'/', component:Home },
-        { path:'/menus', component:Menus, props:(route)=>({query_id:route.query.menu_id})},
+        { path:'/menus', component:Menus},
         { path:'/menus/:menu_id', component:Menus },
         { path:'/events', component:Events, props:(route)=>({query_id:route.query.event_id})},
         { path:'/events/:event_id', component:Events, props:true },
