@@ -12,7 +12,7 @@ const routes = [
   { path: '/', name: 'Home', component: Home, meta:{requiresAuth:true}},
   { path: '/add', name: 'Add', component: Add, meta:{requiresAuth:true}},
   { path: '/memos/:memoId', name: 'Read', component: Read, meta:{requiresAuth:true}},
-  { path: '/singin', name: 'Signin', component: Signin},
+  { path: '/signin', name: 'Signin', component: Signin},
   { path: '/signup', name: 'Signup', component: Signup},
 ]
 
@@ -25,8 +25,8 @@ const router = new VueRouter({
 router.beforeEach((to, from, next)=>{
   if(to.matched.some((record)=>record.meta.requiresAuth)){
     if(localStorage.getItem('accessToken')==null){
-      alert('Singin please')
-      next('/singin');
+      alert('Signin please')
+      next('/signin');
     }
   }
   next();
